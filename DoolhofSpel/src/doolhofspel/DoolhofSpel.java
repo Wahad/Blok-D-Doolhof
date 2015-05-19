@@ -21,5 +21,9 @@ public class DoolhofSpel {
        fraam.setSize(700,700);
        fraam.setVisible(true);
        fraam.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+       
+       
     }
+    
+    
 }

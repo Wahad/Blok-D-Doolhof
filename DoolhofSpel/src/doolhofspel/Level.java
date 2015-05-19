@@ -5,16 +5,21 @@
 package doolhofspel;
 
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import doolhofspel.Speler.Richting;
 
 /**
  *
  * @author Menno
  */
 public class Level extends JPanel {
+
     private int x;
     private int score;
     private int levelnummer;
@@ -22,16 +27,19 @@ public class Level extends JPanel {
     final int aantalVelden = 20;
     private Scanner level;
     Veld[][] velden = new Veld[aantalVelden][aantalVelden];
-    
-    
-    public Level()
-    {
+    private Speler s;
+
+    public Level() {
+        addKeyListener(new input()); 
+        setFocusable(true);
+        setFocusTraversalKeysEnabled(false);
         openLevel();
         leesLevelIn();
-        
+
     }
-     private void openLevel() {
-         
+
+    private void openLevel() {
+
         try {
             level = new Scanner(new File("src/images/testlevel.txt"));
         } catch (FileNotFoundException e) {
@@ -47,6 +55,8 @@ public class Level extends JPanel {
                 velden[x][y].drawObject(g);
             }
         }
+        s = new Speler(velden[18][18]);
+        s.drawObject(g);
     }
 
     private void leesLevelIn() {
@@ -67,5 +77,38 @@ public class Level extends JPanel {
             }
             x++;
         }
-}
+    }
+    
+    public class input implements KeyListener{
+        
+
+        @Override
+        public void keyPressed(KeyEvent e) {
+            int keycode = e.getKeyCode();
+            
+            if (keycode == KeyEvent.VK_UP) {
+                s.bewegen(Richting.NORTH);
+            }
+            if (keycode == KeyEvent.VK_DOWN) {
+                s.bewegen(Richting.SOUTH);
+            }
+            if (keycode == KeyEvent.VK_RIGHT) {
+                s.bewegen(Richting.EAST);
+            }
+            if (keycode == KeyEvent.VK_LEFT) {
+                s.bewegen(Richting.EAST);
+            }
+        }
+
+        @Override
+        public void keyTyped(KeyEvent e) {
+            
+        }
+        
+        @Override
+        public void keyReleased(KeyEvent e) {
+            
+        }
+    
+    }
 }
