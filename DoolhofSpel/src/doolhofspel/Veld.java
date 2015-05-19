@@ -30,7 +30,7 @@ public class Veld extends JComponent {
     }
     
     public void drawObject(Graphics g) {
-        g.drawImage(img, veld.getXCo(), veld.getYCo(), null);
+        g.drawImage(veld.img, veld.getXCo(), veld.getYCo(), null);
     }
      public void setXCo(int XCo) {
         this.xco = XCo;

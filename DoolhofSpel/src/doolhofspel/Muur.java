@@ -17,10 +17,8 @@ public class Muur extends Veld {
     
      public Muur(Veld veld) {
          super(veld.getXCo(), veld.getYCo());
-        imgIc = new ImageIcon("src/pictures/bookcase.png");
+        imgIc = new ImageIcon("src/images/bookcase.png");
         img = imgIc.getImage();
     }
-    public void setObject(Veld veld) {
-        this.veld = veld;
-    }
+    
 }

@@ -18,7 +18,7 @@ public class Pad extends Veld {
     public Pad(Veld veld)
     {
         super(veld.getXCo(), veld.getYCo());
-        imgIc = new ImageIcon("src/pictures/planks.png");
+        imgIc = new ImageIcon("src/images/planks.png");
         img = imgIc.getImage();
     }
 

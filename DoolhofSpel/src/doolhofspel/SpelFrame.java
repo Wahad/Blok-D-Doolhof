@@ -8,10 +8,6 @@ package doolhofspel;
 import java.awt.BorderLayout;
 import javax.swing.JFrame;
 
-/**
- *
- * @author Roberto & Gert-Jan
- */
 public class SpelFrame extends JFrame {
 
     Level level;
