@@ -4,12 +4,12 @@
  */
 package doolhofspel;
 
-import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /**
  *
  * @author Menno
  */
-public class Spel extends JFrame {
+public class Spel extends JPanel {
     
 }
