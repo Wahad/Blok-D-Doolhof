@@ -13,14 +13,17 @@ import javax.swing.JFrame;
  * @author Roberto & Gert-Jan
  */
 public class SpelFrame extends JFrame {
-     Level level;
- public SpelFrame() {
+
+    Level level;
+
+    public SpelFrame() {
+
         setLayout(new BorderLayout());
-        
+        this.setSize(700, 700);
+
         level = new Level();
         level.setSize(680, 700);
-        add(level);
-        this.setSize(680, 700);
+        add(level, BorderLayout.CENTER);
         this.repaint();
     }
 }

@@ -17,10 +17,9 @@ public class DoolhofSpel {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       JFrame fraam = new SpelFrame();
+       SpelFrame fraam = new SpelFrame();
        fraam.setSize(700,700);
-       fraam.setLocationRelativeTo(null);
-       fraam.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
        fraam.setVisible(true);
+       fraam.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }

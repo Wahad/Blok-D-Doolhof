@@ -19,9 +19,9 @@ public class Level extends JPanel {
     private int score;
     private int levelnummer;
     final int pixelsize = 32;
-    final int aantalVelden = 0;
+    final int aantalVelden = 20;
     private Scanner level;
-    Veld[][] velden = new Pad[aantalVelden][aantalVelden];
+    Veld[][] velden = new Veld[aantalVelden][aantalVelden];
     
     
     public Level()
