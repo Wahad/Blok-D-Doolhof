@@ -65,10 +65,6 @@ public class Level extends JPanel {
             for (int y = 0; y < aantalVelden; y++) {
                 velden[x][y] = new Veld((x * pixelsize) + 10, (y * pixelsize) + 10);
                 switch (level.next()) {
-                    case "P":
-                        Veld pad = new Pad(velden[x][y]);
-                        velden[x][y].setObject(pad);
-                        break;
                     case "A":
                         Veld muur = new Muur(velden[x][y]);
                         velden[x][y].setObject(muur);
