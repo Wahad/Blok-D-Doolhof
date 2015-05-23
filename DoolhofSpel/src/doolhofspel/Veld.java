@@ -4,7 +4,6 @@
  */
 package doolhofspel;
 
-import doolhofspel.Speler.Richting;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.util.HashMap;
@@ -17,12 +16,12 @@ import javax.swing.JComponent;
  */
 public class Veld extends JComponent {
 
-    private Veld veld;
-    protected ImageIcon imgIc;
-    protected Image img;
+    protected ImageIcon imgIc = new ImageIcon("src/images/planks.png");
+    protected Image img = imgIc.getImage();
     private int yco;
     private int xco;
     private HashMap<Richting, Veld> buurvakjes;
+    private SpelObject obg;
 
     public Veld(int xcor, int ycor) {
         buurvakjes = new HashMap<>();
@@ -38,16 +37,19 @@ public class Veld extends JComponent {
         buurvakjes.put(r, neighbour);
     }
 
-    public void setObject(Veld veld) {
-        this.veld = veld;
+    public void setObject(SpelObject g) {
+        this.obg = g;
     }
     
-    public Veld getVeld(){
-        return veld;
+    public SpelObject getObject(){
+        return obg;
     }
 
     public void drawObject(Graphics g) {
-        g.drawImage(veld.img, veld.getXCo(), veld.getYCo(), null);
+        g.drawImage(img, xco, yco, null);
+        if (obg != null) {
+            obg.drawObject(g);
+        }
     }
 
     public void setXCo(int XCo) {

@@ -4,19 +4,19 @@
  */
 package doolhofspel;
 
+import java.awt.Image;
 import javax.swing.ImageIcon;
 
 /**
  *
  * @author Menno
  */
-public class Muur extends Veld {
+public class Muur extends SpelObject{
     private int sterkte;
-    private Veld veld;
     
     
      public Muur(Veld veld) {
-         super(veld.getXCo(), veld.getYCo());
+        super(veld);
         imgIc = new ImageIcon("src/images/bookcase.png");
         img = imgIc.getImage();
     }

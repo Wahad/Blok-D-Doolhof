@@ -12,7 +12,6 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import doolhofspel.Speler.Richting;
 
 /**
  *
@@ -26,11 +25,14 @@ public class Level extends JPanel {
     final int pixelsize = 32;
     final int aantalVelden = 20;
     private Scanner level;
+    private SpelFrame frame;
     Veld[][] velden = new Veld[aantalVelden][aantalVelden];
     private Speler s;
+    private Richting richt;
 
     public Level() {
         addKeyListener(new input()); 
+        requestFocus();
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
         openLevel();
@@ -55,8 +57,6 @@ public class Level extends JPanel {
                 velden[x][y].drawObject(g);
             }
         }
-        s = new Speler(velden[18][18]);
-        s.drawObject(g);
     }
 
     private void leesLevelIn() {
@@ -66,12 +66,33 @@ public class Level extends JPanel {
                 velden[x][y] = new Veld((x * pixelsize) + 10, (y * pixelsize) + 10);
                 switch (level.next()) {
                     case "A":
-                        Veld muur = new Muur(velden[x][y]);
-                        velden[x][y].setObject(muur);
+                        SpelObject m = new Muur(velden[x][y]);
+                        velden[x][y].setObject(m);
+                        break;
+                    case "S":
+                        s = new Speler(velden[x][y]);
+                        velden[x][y].setObject(s);
                         break;
                 }
             }
             x++;
+        }
+        
+        for (int x = 0; x < aantalVelden; x++) {
+            for (int y = 0; y < aantalVelden; y++) {
+                if (x > 0) {
+                    velden[x][y].setBuur(Richting.WEST, velden[x - 1][y]);
+                }
+                if (y > 0) {
+                    velden[x][y].setBuur(Richting.NORTH, velden[x][y - 1]);
+                }
+                if (x < aantalVelden - 1) {
+                    velden[x][y].setBuur(Richting.EAST, velden[x + 1][y]);
+                }
+                if (y < aantalVelden - 1) {
+                    velden[x][y].setBuur(Richting.SOUTH, velden[x][y + 1]);
+                }
+            }
         }
     }
     
@@ -84,16 +105,24 @@ public class Level extends JPanel {
             
             if (keycode == KeyEvent.VK_UP) {
                 s.bewegen(Richting.NORTH);
+                richt = Richting.NORTH;
             }
             if (keycode == KeyEvent.VK_DOWN) {
                 s.bewegen(Richting.SOUTH);
+                richt = Richting.SOUTH;
             }
             if (keycode == KeyEvent.VK_RIGHT) {
                 s.bewegen(Richting.EAST);
+                richt = Richting.EAST;
             }
             if (keycode == KeyEvent.VK_LEFT) {
-                s.bewegen(Richting.EAST);
+                s.bewegen(Richting.WEST);
+                richt = Richting.WEST;
             }
+            if (keycode == KeyEvent.VK_R){
+                //reset
+            }
+            repaint();
         }
 
         @Override
