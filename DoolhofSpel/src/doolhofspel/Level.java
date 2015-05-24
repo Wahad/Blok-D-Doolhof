@@ -10,7 +10,6 @@ import java.awt.event.KeyListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -25,18 +24,17 @@ public class Level extends JPanel {
     final int pixelsize = 32;
     final int aantalVelden = 20;
     private Scanner level;
-    private SpelFrame frame;
     Veld[][] velden = new Veld[aantalVelden][aantalVelden];
     private Speler s;
     private Richting richt;
 
     public Level() {
         addKeyListener(new input()); 
-        requestFocus();
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
         openLevel();
         leesLevelIn();
+        sluitLevel();
 
     }
 
@@ -96,6 +94,16 @@ public class Level extends JPanel {
         }
     }
     
+    private void sluitLevel(){
+        level.close();
+    }
+    
+    public void restart(){
+        openLevel();
+        leesLevelIn();
+        sluitLevel();
+    }
+    
     public class input implements KeyListener{
         
 
@@ -120,7 +128,7 @@ public class Level extends JPanel {
                 richt = Richting.WEST;
             }
             if (keycode == KeyEvent.VK_R){
-                //reset
+                restart();
             }
             repaint();
         }
