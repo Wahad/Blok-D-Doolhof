@@ -21,7 +21,10 @@ public class ValsSpeler extends Item {
     public void uitvoeren(Speler speler)
     {
         int stappen = speler.getaantalStappen()/2;
+        int stappen2 = speler.getaantalStappen();
         speler.setaantalStappen(stappen);
+        System.out.println("Aantal stappen na" + stappen);
+        System.out.println("Aantal stappen voor" + stappen2);
     }
     
 }
