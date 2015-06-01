@@ -21,7 +21,7 @@ public class Level extends JPanel {
 
     private int x;
     private int score;
-    private int levelnummer;
+    private int levelnummer = 1;
     final int pixelsize = 32;
     final int aantalVelden = 20;
     private Scanner level;

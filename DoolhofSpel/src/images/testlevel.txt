@@ -1,7 +1,7 @@
-B B B A A A A A A A A A A A A A A A A A
-B B P P P P P P P P P P A P A P P P A A
-B P A A A P A A A A A A A P A P A P P A
-B P A P A P A P P P P P A P A P A A A A
+A A A A A A A A A A A A A A A A A A A A
+A B P P P P P P P P P P A P A P P P A A
+A P A A A P A A A A A A A P A P A P P A
+A P A P A P A P P P P P A P A P A A A A
 A A A P A P A P A A A P A P A P P P P A
 A P A P A P A P A P A P A P A A A A P A
 A P A P A P A P A P P P P P P P P P P A
