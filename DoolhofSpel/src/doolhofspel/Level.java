@@ -136,7 +136,7 @@ public class Level extends JPanel {
             if (keycode == KeyEvent.VK_R){
                 restart();
             }
-            if (s.getEnd()) {
+            if (s.getEnd() && levelnummer <= 3) {
                 try {
                     levelnummer++;
                     restart();
@@ -147,7 +147,6 @@ public class Level extends JPanel {
                 }
             }
             repaint();
-            frame.repaint();
         }
 
         @Override
