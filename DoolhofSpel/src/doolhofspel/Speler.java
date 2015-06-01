@@ -49,4 +49,12 @@ public class Speler extends SpelObject {
      public boolean getEnd() {
         return end;
     }
+
+  public int getaantalStappen() {
+        return aantalStappen;
+    }
+
+    public void setaantalStappen(int aantalStappen) {
+        this.aantalStappen = aantalStappen;
+    }
 }

@@ -74,7 +74,12 @@ public class Level extends JPanel {
                         velden[x][y].setObject(s);
                         break;
                     case "B":
-                        SpelObject v = new Vriend(velden[x][y]);
+                        SpelObject b = new Vriend(velden[x][y]);
+                        velden[x][y].setObject(b);
+                        break;
+                        
+                     case "V":
+                        SpelObject v = new ValsSpeler(velden[x][y]);
                         velden[x][y].setObject(v);
                         break;
                 }
