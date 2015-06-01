@@ -10,6 +10,7 @@ import java.awt.event.KeyListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -27,6 +28,7 @@ public class Level extends JPanel {
     Veld[][] velden = new Veld[aantalVelden][aantalVelden];
     private Speler s;
     private Richting richt;
+    SpelFrame frame;
 
     public Level() {
         addKeyListener(new input()); 
@@ -41,7 +43,7 @@ public class Level extends JPanel {
     private void openLevel() {
 
         try {
-            level = new Scanner(new File("src/images/testlevel.txt"));
+            level = new Scanner(new File("src/images/testlevel" + levelnummer+ ".txt"));
         } catch (FileNotFoundException e) {
             System.out.println("Geen map gevonden " + e);
         }
@@ -70,6 +72,10 @@ public class Level extends JPanel {
                     case "S":
                         s = new Speler(velden[x][y]);
                         velden[x][y].setObject(s);
+                        break;
+                    case "B":
+                        SpelObject v = new Vriend(velden[x][y]);
+                        velden[x][y].setObject(v);
                         break;
                 }
             }
@@ -130,7 +136,18 @@ public class Level extends JPanel {
             if (keycode == KeyEvent.VK_R){
                 restart();
             }
+            if (s.getEnd()) {
+                try {
+                    levelnummer++;
+                    restart();
+
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(frame, "Gefeliciteerd! U heeft het spel gewonnen!");
+                    System.exit(1);
+                }
+            }
             repaint();
+            frame.repaint();
         }
 
         @Override

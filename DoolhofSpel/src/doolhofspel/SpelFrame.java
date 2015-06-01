@@ -20,6 +20,5 @@ public class SpelFrame extends JFrame {
         level = new Level();
         level.setSize(680, 700);
         add(level, BorderLayout.CENTER);
-        this.repaint();
     }
 }
