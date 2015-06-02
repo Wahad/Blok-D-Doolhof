@@ -28,6 +28,7 @@ public class Level extends JPanel {
     private Scanner level;
     Veld[][] velden = new Veld[aantalVelden][aantalVelden];
     private Speler s;
+    private Vriend v;
     private Richting richt;
     SpelFrame frame;
 
@@ -76,8 +77,10 @@ public class Level extends JPanel {
                         velden[x][y].setObject(s);
                         break;
                     case "B":
-                        SpelObject b = new Vriend(velden[x][y]);
-                        velden[x][y].setObject(b);
+                        v = new Vriend(velden[x][y]);
+                        v.level = this;
+                        velden[x][y].setObject(v);
+                        
                         break;
                         
                      case "V":
@@ -117,6 +120,13 @@ public class Level extends JPanel {
         sluitLevel();
     }
     
+    public int getNummer(){
+        return levelnummer;
+    }
+    public void setNummer(int nummer){
+        this.levelnummer = nummer;
+    }
+    
     public class input implements KeyListener{
         
 
@@ -143,16 +153,7 @@ public class Level extends JPanel {
             if (keycode == KeyEvent.VK_R){
                 restart();
             }
-            if (s.getEnd() && levelnummer <= 3) {
-                try {
-                    levelnummer++;
-                    restart();
-
-                } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(frame, "Gefeliciteerd! U heeft het spel gewonnen!");
-                    System.exit(1);
-                }
-            }
+            
             repaint();
         }
 

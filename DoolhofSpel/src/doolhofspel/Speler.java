@@ -15,14 +15,12 @@ import javax.swing.ImageIcon;
 public class Speler extends SpelObject {
 
     public int aantalStappen;
-    private boolean end;
     private Item heeft;
 
     public Speler(Veld veld) {
         super(veld);
         imgIc = new ImageIcon("src/images/spelerTest.png");
         img = imgIc.getImage();
-        end = false;
     }
 
     public void bewegen(Richting r) {
@@ -46,14 +44,6 @@ public class Speler extends SpelObject {
             aantalStappen++;
         }
 
-    }
-
-    public void setEnd(boolean end) {
-        this.end = end;
-    }
-
-    public boolean getEnd() {
-        return end;
     }
 
     public int getaantalStappen() {

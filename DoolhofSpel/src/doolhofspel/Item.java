@@ -13,6 +13,7 @@ import javax.swing.ImageIcon;
 
 public class Item extends SpelObject{
     
+    String name;
     boolean pickup = false;
     
     public Item(Veld veld) {

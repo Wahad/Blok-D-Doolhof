@@ -16,8 +16,10 @@ public class ValsSpeler extends Item {
         super(veld);
         imgIc = new ImageIcon("src/images/Dean.png");
         img = imgIc.getImage();
+        this.name = "valsspeler";
     }
     
+    @Override
     public void uitvoeren(Speler speler)
     {
         int stappen = speler.getaantalStappen()/2;
