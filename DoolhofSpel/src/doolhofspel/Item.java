@@ -13,6 +13,8 @@ import javax.swing.ImageIcon;
 
 public class Item extends SpelObject{
     
+    boolean pickup = false;
+    
     public Item(Veld veld) {
         super(veld);
     }

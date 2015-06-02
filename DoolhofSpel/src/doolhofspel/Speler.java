@@ -16,6 +16,7 @@ public class Speler extends SpelObject {
 
     public int aantalStappen;
     private boolean end;
+    private Item heeft;
 
     public Speler(Veld veld) {
         super(veld);
@@ -26,31 +27,36 @@ public class Speler extends SpelObject {
 
     public void bewegen(Richting r) {
         Veld buurveld = veld.getBuur(r);
-        Item i = (Item) buurveld.getObject();
-        
-         if (i instanceof Item) {
-            i.uitvoeren(this);
-        }
-         
-         SpelObject x = buurveld.getObject();
+        SpelObject x = buurveld.getObject();
+
+
+
         if (!(x instanceof Muur)) {
+            if (x instanceof Item) {
+                Item i = (Item) x;
+                if (!i.pickup) {
+                    i.uitvoeren(this);
+                } else {
+                    heeft = i;
+                }
+            }
             veld.setObject(null);
             buurveld.setObject(this);
             this.veld = buurveld;
             aantalStappen++;
         }
-        
+
     }
-    
-     public void setEnd(boolean end) {
+
+    public void setEnd(boolean end) {
         this.end = end;
     }
-     
-     public boolean getEnd() {
+
+    public boolean getEnd() {
         return end;
     }
 
-  public int getaantalStappen() {
+    public int getaantalStappen() {
         return aantalStappen;
     }
 
