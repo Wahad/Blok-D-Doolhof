@@ -10,6 +10,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Random;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -87,7 +88,9 @@ public class Level extends JPanel {
                         break;
 
                     case "V":
-                        SpelObject v = new ValsSpeler(velden[x][y]);
+                        Random rand = new Random();
+                        int waarde = rand.nextInt(20) + 1;
+                        SpelObject v = new ValsSpeler(velden[x][y], waarde);
                         velden[x][y].setObject(v);
                         break;
                 }

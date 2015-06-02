@@ -11,19 +11,20 @@ import javax.swing.ImageIcon;
  * @author Menno
  */
 public class ValsSpeler extends Item {
-     public ValsSpeler(Veld veld)
-    {
+
+    int waarde;
+    
+    public ValsSpeler(Veld veld, int waarde) {
         super(veld);
         imgIc = new ImageIcon("src/images/Dean.png");
         img = imgIc.getImage();
         this.name = "valsspeler";
+        this.waarde = waarde;
     }
-    
+
     @Override
-    public void uitvoeren(Speler speler)
-    {
-        int stappen = speler.getaantalStappen()/2;
+    public void uitvoeren(Speler speler) {
+        int stappen = speler.getaantalStappen() - waarde;
         speler.setaantalStappen(stappen);
     }
-    
 }

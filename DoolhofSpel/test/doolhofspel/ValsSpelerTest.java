@@ -4,6 +4,7 @@
  */
 package doolhofspel;
 
+import java.util.Random;
 import org.junit.*;
 import static org.junit.Assert.*;
 
@@ -39,13 +40,15 @@ public class ValsSpelerTest {
     public void testUitvoeren() {
         System.out.println("uitvoeren");
         Speler speler = new Speler(new Veld(1, 1));
-        speler.aantalStappen = 40;
-        int verwachtaantal = 20;
-        ValsSpeler instance = new ValsSpeler(new Veld(1, 1));
+        speler.setaantalStappen(40);
+        Random rand = new Random();
+        int waarde = rand.nextInt(20) + 1;
+        int verwachtaantal = 40-waarde;
+        ValsSpeler instance = new ValsSpeler(new Veld(1, 1), waarde);
         
         instance.uitvoeren(speler);
         
-        assertEquals(speler.aantalStappen, verwachtaantal);
+        assertEquals(speler.getaantalStappen(), verwachtaantal);
         //fail("Het aantalstappen is niet verminderd.");
     }
 }
