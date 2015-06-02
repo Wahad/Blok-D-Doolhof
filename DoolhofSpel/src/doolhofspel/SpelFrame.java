@@ -18,24 +18,19 @@ public class SpelFrame extends JFrame {
     public SpelFrame() {
 
         setLayout(new BorderLayout());
-        Dimension dframe = new Dimension();
-        dframe.height = 700;
-        dframe.width = 900;
-        Dimension dtitle = new Dimension();
-        dtitle.height = 30;
-        dtitle.width = 900;
         
-        this.setSize(dframe);
+        this.setPreferredSize(new Dimension(800, 720));
         JPanel title = new JPanel();
-        title.setPreferredSize(dtitle);
-        title.setBackground(Color.red);
-        add(title, BorderLayout.NORTH);
+        title.setPreferredSize(new Dimension(800, 30));
+        title.setBackground(Color.ORANGE);
+        JPanel side = new JPanel();
+        side.setPreferredSize(new Dimension(100, 720));
+        side.setBackground(Color.ORANGE);
         
         level = new Level();
-        Dimension dcenter = new Dimension();
-        dcenter.height = 640;
-        dcenter.width = 640;
-        level.setSize(dcenter);
+        level.setPreferredSize(new Dimension(640, 640));
         add(level, BorderLayout.CENTER);
+        add(title, BorderLayout.NORTH);
+        add(side, BorderLayout.EAST);
     }
 }

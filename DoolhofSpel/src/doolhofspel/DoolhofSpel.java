@@ -18,7 +18,7 @@ public class DoolhofSpel {
      */
     public static void main(String[] args) {
        SpelFrame fraam = new SpelFrame();
-       fraam.setSize(700,700);
+       fraam.setSize(800,720);
        fraam.setVisible(true);
        fraam.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
        

@@ -4,6 +4,7 @@
  */
 package doolhofspel;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -52,6 +53,7 @@ public class Level extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+        this.setBackground(Color.ORANGE);
         for (int x = 0; x < aantalVelden; x++) {
             for (int y = 0; y < aantalVelden; y++) {
                 velden[x][y].drawObject(g);
