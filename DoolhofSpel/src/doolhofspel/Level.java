@@ -73,9 +73,13 @@ public class Level extends JPanel {
                 velden[x][y] = new Veld((x * pixelsize) + 10, (y * pixelsize) + 10);
                 switch (level.next()) {
                     case "A":
-                        SpelObject m = new Muur(velden[x][y]);
+                        SpelObject m = new Muur(velden[x][y], false);
                         velden[x][y].setObject(m);
                         break;
+                    case "W":
+                        SpelObject w = new Muur(velden[x][y], true);
+                        velden[x][y].setObject(w);
+                        break; 
                     case "S":
                         s = new Speler(velden[x][y]);
                         velden[x][y].setObject(s);
