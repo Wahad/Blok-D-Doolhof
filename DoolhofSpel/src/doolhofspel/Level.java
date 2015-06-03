@@ -84,7 +84,6 @@ public class Level extends JPanel {
                         v = new Vriend(velden[x][y]);
                         v.level = this;
                         velden[x][y].setObject(v);
-
                         break;
 
                     case "V":

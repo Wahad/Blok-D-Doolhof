@@ -14,7 +14,7 @@ public class Schep extends Item {
     public Schep(Veld veld)
     {
         super(veld);
-        imgIc = new ImageIcon("src/images/bazooka.png");
+        imgIc = new ImageIcon("src/images/schep.png");
         img = imgIc.getImage();
         this.name = "Schep";
     }
