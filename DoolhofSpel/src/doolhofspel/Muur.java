@@ -17,7 +17,7 @@ public class Muur extends SpelObject{
     
      public Muur(Veld veld) {
         super(veld);
-        imgIc = new ImageIcon("src/images/bookcase.png");
+        imgIc = new ImageIcon("src/images/muur.png");
         img = imgIc.getImage();
     }
     

@@ -16,7 +16,7 @@ public class ValsSpeler extends Item {
     
     public ValsSpeler(Veld veld, int waarde) {
         super(veld);
-        imgIc = new ImageIcon("src/images/Dean.png");
+        imgIc = new ImageIcon("src/images/valsspeler.png");
         img = imgIc.getImage();
         this.name = "valsspeler";
         this.waarde = waarde;

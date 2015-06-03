@@ -16,7 +16,7 @@ public class Vriend extends Item{
     
      public Vriend(Veld veld) {
         super(veld);
-        imgIc = new ImageIcon("src/images/Pierce.png");
+        imgIc = new ImageIcon("src/images/vriend.png");
         img = imgIc.getImage();
         this.name = "vriend";
         

@@ -17,13 +17,15 @@ public class SpelFrame extends JFrame {
 
     Level level;
     Sidebar side;
+    Titlebar title;
 
     public SpelFrame() {
 
         setLayout(new BorderLayout());
         
         this.setPreferredSize(new Dimension(800, 720));
-        JPanel title = new JPanel();
+        title = new Titlebar();
+        
         title.setPreferredSize(new Dimension(800, 30));
         title.setBackground(Color.ORANGE);
         /*Button Knop = new Button("Play");
@@ -42,6 +44,7 @@ public class SpelFrame extends JFrame {
         level.setPreferredSize(new Dimension(640, 640));
         add(level, BorderLayout.CENTER);
         
+        title.setLevel(level);
         level.setFrame(this);
         side.setLevel(level);
         this.repaint();
