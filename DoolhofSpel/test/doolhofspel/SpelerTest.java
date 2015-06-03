@@ -37,11 +37,43 @@ public class SpelerTest {
      */
     @Test
     public void testBewegen() {
-        System.out.println("bewegen");
-        Richting r = null;
-        Speler instance = null;
-        instance.bewegen(r);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        Veld veld = new Veld(10, 10);
+        Veld buurveld = new Veld(10, 11);
+        veld.setBuur(Richting.SOUTH, buurveld);
+        Speler instance = new Speler(veld);
+        veld.setObject(instance);
+        instance.bewegen(Richting.SOUTH);
+        
+        int verwachtY = 11;
+        int echteY = instance.veld.getYCo();
+        assertEquals(verwachtY, echteY);
+       
+    }
+
+    /**
+     * Test of getaantalStappen method, of class Speler.
+     */
+    @Test
+    public void testGetaantalStappen() {
+        System.out.println("getaantalStappen");
+        Speler instance = new Speler(new Veld(1, 1));
+        int expResult = 0;
+        int result = instance.getaantalStappen();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of setaantalStappen method, of class Speler.
+     */
+    @Test
+    public void testSetaantalStappen() {
+        System.out.println("setaantalStappen");
+        int aantalStappen = 5;
+        Speler instance = new Speler(new Veld(1, 1));
+        instance.setaantalStappen(aantalStappen);
+        int resultaat = 5;
+        assertEquals(instance.getaantalStappen(), resultaat);
+        
     }
 }
