@@ -53,4 +53,8 @@ public class Speler extends SpelObject {
     public void setaantalStappen(int aantalStappen) {
         this.aantalStappen = aantalStappen;
     }
+
+   public void graaf(Richting richt) {
+        
+    }
 }

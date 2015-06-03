@@ -76,17 +76,19 @@ public class Level extends JPanel {
                         s = new Speler(velden[x][y]);
                         velden[x][y].setObject(s);
                         break;
-                    case "B":
+                    case "F":
                         v = new Vriend(velden[x][y]);
                         v.level = this;
                         velden[x][y].setObject(v);
-                        
                         break;
-                        
                      case "V":
                         SpelObject v = new ValsSpeler(velden[x][y]);
                         velden[x][y].setObject(v);
                         break;
+                     case "B":
+                         SpelObject b = new Schep(velden[x][y]);
+                         velden[x][y].setObject(b);
+                         break;
                 }
             }
             x++;
@@ -149,6 +151,9 @@ public class Level extends JPanel {
             if (keycode == KeyEvent.VK_LEFT) {
                 s.bewegen(Richting.WEST);
                 richt = Richting.WEST;
+            }
+            if (keycode == KeyEvent.VK_SPACE) {
+                s.graaf(richt);
             }
             if (keycode == KeyEvent.VK_R){
                 restart();
