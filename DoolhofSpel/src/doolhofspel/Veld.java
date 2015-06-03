@@ -16,7 +16,7 @@ import javax.swing.JComponent;
  */
 public class Veld extends JComponent {
 
-    protected ImageIcon imgIc = new ImageIcon("src/images/planks.png");
+    protected ImageIcon imgIc = new ImageIcon("src/images/veld.png");
     protected Image img = imgIc.getImage();
     private int yco;
     private int xco;

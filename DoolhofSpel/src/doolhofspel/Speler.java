@@ -14,12 +14,12 @@ import javax.swing.ImageIcon;
  */
 public class Speler extends SpelObject {
 
-    public int aantalStappen;
+    private int aantalStappen = 0;
     private Item heeft;
 
     public Speler(Veld veld) {
         super(veld);
-        imgIc = new ImageIcon("src/images/spelerTest.png");
+        imgIc = new ImageIcon("src/images/speler.png");
         img = imgIc.getImage();
     }
 

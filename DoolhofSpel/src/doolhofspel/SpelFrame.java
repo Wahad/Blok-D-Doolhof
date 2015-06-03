@@ -6,31 +6,47 @@
 package doolhofspel;
 
 import java.awt.BorderLayout;
+import java.awt.Button;
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class SpelFrame extends JFrame {
 
     Level level;
+    Sidebar side;
+    Titlebar title;
 
     public SpelFrame() {
 
         setLayout(new BorderLayout());
         
         this.setPreferredSize(new Dimension(800, 720));
-        JPanel title = new JPanel();
+        title = new Titlebar();
+        
         title.setPreferredSize(new Dimension(800, 30));
         title.setBackground(Color.ORANGE);
-        JPanel side = new JPanel();
+        /*Button Knop = new Button("Play");
+        JLabel titlelable = new JLabel("Find the Princess!");
+        titlelable.setSize(100, 30);
+        Knop.setPreferredSize(new Dimension(50, 20));
+        title.add(titlelable);
+        title.add(Knop);*/
+        add(title, BorderLayout.NORTH);
+       
+        side = new Sidebar();
         side.setPreferredSize(new Dimension(100, 720));
-        side.setBackground(Color.ORANGE);
+        add(side, BorderLayout.EAST);
         
         level = new Level();
         level.setPreferredSize(new Dimension(640, 640));
         add(level, BorderLayout.CENTER);
-        add(title, BorderLayout.NORTH);
-        add(side, BorderLayout.EAST);
+        
+        title.setLevel(level);
+        level.setFrame(this);
+        side.setLevel(level);
+        this.repaint();
     }
 }

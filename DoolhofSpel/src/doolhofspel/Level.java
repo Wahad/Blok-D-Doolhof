@@ -10,6 +10,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Random;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -21,7 +22,6 @@ import javax.swing.JPanel;
 public class Level extends JPanel {
 
     private int x;
-    private int score;
     private int levelnummer = 1;
     final int pixelsize = 32;
     final int aantalVelden = 20;
@@ -33,19 +33,23 @@ public class Level extends JPanel {
     SpelFrame frame;
 
     public Level() {
-        addKeyListener(new input()); 
+
+        addKeyListener(new input());
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
         openLevel();
         leesLevelIn();
         sluitLevel();
+    }
 
+    public void setFrame(SpelFrame frame) {
+        this.frame = frame;
     }
 
     private void openLevel() {
 
         try {
-            level = new Scanner(new File("src/images/testlevel" + levelnummer+ ".txt"));
+            level = new Scanner(new File("src/images/testlevel" + levelnummer + ".txt"));
         } catch (FileNotFoundException e) {
             System.out.println("Geen map gevonden " + e);
         }
@@ -80,9 +84,13 @@ public class Level extends JPanel {
                         v = new Vriend(velden[x][y]);
                         v.level = this;
                         velden[x][y].setObject(v);
+
                         break;
-                     case "V":
-                        SpelObject v = new ValsSpeler(velden[x][y]);
+
+                    case "V":
+                        Random rand = new Random();
+                        int waarde = rand.nextInt(20) + 1;
+                        SpelObject v = new ValsSpeler(velden[x][y], waarde);
                         velden[x][y].setObject(v);
                         break;
                      case "B":
@@ -93,7 +101,7 @@ public class Level extends JPanel {
             }
             x++;
         }
-        
+
         for (int x = 0; x < aantalVelden; x++) {
             for (int y = 0; y < aantalVelden; y++) {
                 if (x > 0) {
@@ -111,31 +119,35 @@ public class Level extends JPanel {
             }
         }
     }
-    
-    private void sluitLevel(){
+
+    public int getScore() {
+        return s.getaantalStappen();
+    }
+
+    private void sluitLevel() {
         level.close();
     }
-    
-    public void restart(){
+
+    public void restart() {
         openLevel();
         leesLevelIn();
         sluitLevel();
     }
-    
-    public int getNummer(){
+
+    public int getNummer() {
         return levelnummer;
     }
-    public void setNummer(int nummer){
+
+    public void setNummer(int nummer) {
         this.levelnummer = nummer;
     }
-    
-    public class input implements KeyListener{
-        
+
+    public class input implements KeyListener {
 
         @Override
         public void keyPressed(KeyEvent e) {
             int keycode = e.getKeyCode();
-            
+
             if (keycode == KeyEvent.VK_UP) {
                 s.bewegen(Richting.NORTH);
                 richt = Richting.NORTH;
@@ -158,19 +170,17 @@ public class Level extends JPanel {
             if (keycode == KeyEvent.VK_R){
                 restart();
             }
-            
+
             repaint();
+            frame.repaint();
         }
 
         @Override
         public void keyTyped(KeyEvent e) {
-            
         }
-        
+
         @Override
         public void keyReleased(KeyEvent e) {
-            
         }
-    
     }
 }
