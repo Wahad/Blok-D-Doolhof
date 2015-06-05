@@ -19,6 +19,7 @@ public class Vriend extends Item{
         imgIc = new ImageIcon("src/images/vriend.png");
         img = imgIc.getImage();
         this.name = "vriend";
+        this.pickup = false;
         
     }
     

@@ -14,12 +14,14 @@ public class ValsSpeler extends Item {
 
     int waarde;
     
+    
     public ValsSpeler(Veld veld, int waarde) {
         super(veld);
         imgIc = new ImageIcon("src/images/valsspeler.png");
         img = imgIc.getImage();
         this.name = "valsspeler";
         this.waarde = waarde;
+        this.pickup = false;
     }
 
     @Override

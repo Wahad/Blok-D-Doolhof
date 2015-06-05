@@ -15,7 +15,8 @@ import javax.swing.ImageIcon;
 public class Speler extends SpelObject {
 
     private int aantalStappen = 0;
-    private Item heeft;
+    public Item heeft;
+    public Richting r;
 
     public Speler(Veld veld) {
         super(veld);
@@ -31,7 +32,7 @@ public class Speler extends SpelObject {
 
         if (!(x instanceof Muur)) {
             if (x instanceof Item) {
-                Item i = (Item) x;
+               Item i = (Item) x;
                 if (!i.pickup) {
                     i.uitvoeren(this);
                 } else {
@@ -52,9 +53,5 @@ public class Speler extends SpelObject {
 
     public void setaantalStappen(int aantalStappen) {
         this.aantalStappen = aantalStappen;
-    }
-
-   public void graaf(Richting richt) {
-        
     }
 }

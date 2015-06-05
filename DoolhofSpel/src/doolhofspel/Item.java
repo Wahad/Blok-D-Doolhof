@@ -13,8 +13,8 @@ import javax.swing.ImageIcon;
 
 public class Item extends SpelObject{
     
-    String name;
-    boolean pickup = false;
+    protected String name;
+    protected boolean pickup;
     
     public Item(Veld veld) {
         super(veld);
@@ -22,6 +22,14 @@ public class Item extends SpelObject{
      public void uitvoeren(Speler speler)
     {
         
+    }
+
+    public boolean isPickup() {
+        return pickup;
+    }
+
+    public void setPickup(boolean pickup) {
+        this.pickup = pickup;
     }
     
 }
