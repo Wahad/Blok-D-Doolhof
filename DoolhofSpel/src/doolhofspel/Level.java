@@ -29,7 +29,6 @@ public class Level extends JPanel {
     Veld[][] velden = new Veld[aantalVelden][aantalVelden];
     private Speler s;
     private Vriend v;
-    private Richting richt;
     SpelFrame frame;
 
     public Level() {
@@ -144,6 +143,7 @@ public class Level extends JPanel {
     public void setNummer(int nummer) {
         this.levelnummer = nummer;
     }
+    
 
     public class input implements KeyListener {
 
@@ -153,19 +153,19 @@ public class Level extends JPanel {
 
             if (keycode == KeyEvent.VK_UP) {
                 s.bewegen(Richting.NORTH);
-                richt = Richting.NORTH;
+                s.setRicht(Richting.NORTH);
             }
             if (keycode == KeyEvent.VK_DOWN) {
                 s.bewegen(Richting.SOUTH);
-                richt = Richting.SOUTH;
+                s.setRicht(Richting.SOUTH);
             }
             if (keycode == KeyEvent.VK_RIGHT) {
                 s.bewegen(Richting.EAST);
-                richt = Richting.EAST;
+                s.setRicht(Richting.EAST);
             }
             if (keycode == KeyEvent.VK_LEFT) {
                 s.bewegen(Richting.WEST);
-                richt = Richting.WEST;
+                s.setRicht(Richting.WEST);
             }
             if (keycode == KeyEvent.VK_SPACE) {
                s.heeft.uitvoeren(s);
