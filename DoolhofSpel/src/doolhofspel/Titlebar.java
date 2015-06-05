@@ -6,6 +6,8 @@ package doolhofspel;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 /**
@@ -13,16 +15,15 @@ import javax.swing.JPanel;
  * @author Gebruiker
  */
 public class Titlebar extends JPanel{
-    Level level;
     
-    public void setLevel(Level level){
-        this.level = level;
-    }
+    protected ImageIcon imgIc = new ImageIcon("src/images/title.png");
+    protected Image img = imgIc.getImage();
+    
     
     @Override
     public void paint(Graphics g) {
         super.paint(g);
-        g.drawString("Level " + level.getNummer(), 300, 20);
+        g.drawImage(img, 300, 1, null);
         setBackground(Color.ORANGE);
     }
 }

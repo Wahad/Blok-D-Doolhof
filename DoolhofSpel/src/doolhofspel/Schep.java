@@ -27,6 +27,8 @@ public class Schep extends Item {
         Richting r = speler.getRicht();
         Veld zichzelf = speler.veld.getBuur(r);
         Muur muur = (Muur) zichzelf.getObject();
+        if(muur != null){
         muur.destroy(zichzelf);
+        }
     }
 }

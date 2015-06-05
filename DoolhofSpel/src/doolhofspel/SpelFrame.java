@@ -44,7 +44,6 @@ public class SpelFrame extends JFrame {
         level.setPreferredSize(new Dimension(640, 640));
         add(level, BorderLayout.CENTER);
         
-        title.setLevel(level);
         level.setFrame(this);
         side.setLevel(level);
         this.repaint();
