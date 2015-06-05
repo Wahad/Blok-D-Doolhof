@@ -14,10 +14,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class SpelFrame extends JFrame {
-
+    HoofdMenu menu;
     Level level;
     Sidebar side;
     Titlebar title;
+    
 
     public SpelFrame() {
 
@@ -43,6 +44,8 @@ public class SpelFrame extends JFrame {
         level = new Level();
         level.setPreferredSize(new Dimension(640, 640));
         add(level, BorderLayout.CENTER);
+        
+        
         
         level.setFrame(this);
         side.setLevel(level);

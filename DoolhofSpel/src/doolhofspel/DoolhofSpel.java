@@ -21,7 +21,7 @@ public class DoolhofSpel {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       HoofdMenu frame = new HoofdMenu();
+       SpelFrame frame = new SpelFrame();
        frame.setSize(800,720);
        frame.setVisible(true);
        frame.setBackground(Color.ORANGE);
