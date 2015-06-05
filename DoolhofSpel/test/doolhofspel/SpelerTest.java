@@ -26,6 +26,7 @@ public class SpelerTest {
     
     @Before
     public void setUp() {
+        
     }
     
     @After
@@ -42,12 +43,17 @@ public class SpelerTest {
         Veld buurveld = new Veld(10, 11);
         veld.setBuur(Richting.SOUTH, buurveld);
         Speler instance = new Speler(veld);
+        SpelObject schep = new Schep(buurveld, true);
         veld.setObject(instance);
+        buurveld.setObject(schep);
         instance.bewegen(Richting.SOUTH);
+        Item verwacht = (Item) schep;
+        Item echt = instance.heeft;
         
-        int verwachtY = 11;
-        int echteY = instance.veld.getYCo();
-        assertEquals(verwachtY, echteY);
+        //int verwachtY = 11;
+        //int echteY = instance.veld.getYCo();
+        //assertEquals(verwachtY, echteY);
+        assertEquals(verwacht, echt);
        
     }
 
