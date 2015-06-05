@@ -97,8 +97,12 @@ public class Level extends JPanel {
                         velden[x][y].setObject(vs);
                         break;
                      case "B":
-                         SpelObject b = new Schep(velden[x][y]);
+                         SpelObject b = new Schep(velden[x][y], true);
                          velden[x][y].setObject(b);
+                         break;
+                     case "H":
+                         SpelObject h = new Helper(velden[x][y]);
+                         velden[x][y].setObject(h);
                          break;
                 }
             }

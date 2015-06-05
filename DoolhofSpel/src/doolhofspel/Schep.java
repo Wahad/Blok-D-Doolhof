@@ -11,8 +11,7 @@ import javax.swing.ImageIcon;
  * @author Menno
  */
 public class Schep extends Item {
-    public Schep(Veld veld, boolean pickup)
-    {
+    public Schep(Veld veld)   {
         super(veld);
         imgIc = new ImageIcon("src/images/schep.png");
         img = imgIc.getImage();
