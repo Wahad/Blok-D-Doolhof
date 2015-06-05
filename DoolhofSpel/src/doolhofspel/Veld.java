@@ -22,6 +22,8 @@ public class Veld extends JComponent {
     private int xco;
     private HashMap<Richting, Veld> buurvakjes;
     private SpelObject obg;
+    private boolean bekeken = false;
+    private int index = 0;
 
     public Veld(int xcor, int ycor) {
         buurvakjes = new HashMap<>();
@@ -67,4 +69,25 @@ public class Veld extends JComponent {
     public int getYCo() {
         return yco;
     }
+
+    public boolean isBekeken() {
+        return bekeken;
+    }
+
+    public void setBekeken(boolean bekeken) {
+        this.bekeken = bekeken;
+    }
+
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
+    }
+    
+    public void setImage(ImageIcon image){
+        this.img = image.getImage();
+    }
+    
 }
