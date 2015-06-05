@@ -16,7 +16,15 @@ public class Speler extends SpelObject {
 
     private int aantalStappen = 0;
     public Item heeft;
-    public Richting r;
+    private Richting richt;
+
+    public Richting getRicht() {
+        return richt;
+    }
+
+    public void setRicht(Richting richt) {
+        this.richt = richt;
+    }
 
     public Speler(Veld veld) {
         super(veld);
@@ -54,4 +62,5 @@ public class Speler extends SpelObject {
     public void setaantalStappen(int aantalStappen) {
         this.aantalStappen = aantalStappen;
     }
+    
 }

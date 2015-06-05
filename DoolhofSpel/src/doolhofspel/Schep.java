@@ -11,17 +11,21 @@ import javax.swing.ImageIcon;
  * @author Menno
  */
 public class Schep extends Item {
-    public Schep(Veld veld)   {
+    
+    public Schep(Veld veld, boolean pickup)
+    {
         super(veld);
         imgIc = new ImageIcon("src/images/schep.png");
         img = imgIc.getImage();
         this.name = "Schep";
         this.setPickup(pickup);
+        
     }
-     @Override
+    
+    @Override
     public void uitvoeren(Speler speler) {
-        Richting r = speler.r;
-        Veld zichzelf = veld.getBuur(r);
+        Richting r = speler.getRicht();
+        Veld zichzelf = speler.veld.getBuur(r);
         Muur muur = (Muur) zichzelf.getObject();
         muur.destroy(zichzelf);
     }
