@@ -22,19 +22,12 @@ public class SpelFrame extends JFrame {
 
     public SpelFrame() {
 
-        setLayout(new BorderLayout());
         
         this.setPreferredSize(new Dimension(800, 720));
         title = new Titlebar();
         
         title.setPreferredSize(new Dimension(800, 30));
         title.setBackground(Color.ORANGE);
-        /*Button Knop = new Button("Play");
-        JLabel titlelable = new JLabel("Find the Princess!");
-        titlelable.setSize(100, 30);
-        Knop.setPreferredSize(new Dimension(50, 20));
-        title.add(titlelable);
-        title.add(Knop);*/
         add(title, BorderLayout.NORTH);
        
         side = new Sidebar();
