@@ -37,24 +37,77 @@ public class SpelerTest {
      * Test of bewegen method, of class Speler.
      */
     @Test
-    public void testBewegen() {
-        
+    public void testBewegenZuid() {
         Veld veld = new Veld(10, 10);
-        Veld buurveld = new Veld(10, 11);
-        veld.setBuur(Richting.SOUTH, buurveld);
         Speler instance = new Speler(veld);
-        SpelObject schep = new Schep(buurveld, true);
-        veld.setObject(instance);
-        buurveld.setObject(schep);
-        instance.bewegen(Richting.SOUTH);
-        Item verwacht = (Item) schep;
-        Item echt = instance.heeft;
+        Veld buurveldzuid = new Veld(10, 11);
+        veld.setBuur(Richting.SOUTH, buurveldzuid);
         
-        //int verwachtY = 11;
-        //int echteY = instance.veld.getYCo();
-        //assertEquals(verwachtY, echteY);
-        assertEquals(verwacht, echt);
-       
+        veld.setObject(instance);
+        instance.bewegen(Richting.SOUTH);
+        
+        int verwachtYZuid = 11;
+        int echteYZuid = instance.veld.getYCo();
+        assertEquals(verwachtYZuid, echteYZuid);
+    }
+    
+    @Test
+    public void testBewegenNoord() {  
+        Veld veld = new Veld(10, 10);
+        Speler instance = new Speler(veld);
+        Veld buurveldnoord = new Veld(10, 9);
+        veld.setBuur(Richting.NORTH, buurveldnoord);
+        
+        veld.setObject(instance);
+        instance.bewegen(Richting.NORTH);
+        
+        int verwachtyNoord = 9;
+        int echteyNoord = instance.veld.getYCo();
+        assertEquals(verwachtyNoord, echteyNoord);
+        }
+    @Test
+    public void testBewegenOost() {   
+        Veld veld = new Veld(10, 10);
+        Speler instance = new Speler(veld);
+        Veld buurveldoost = new Veld(11, 10);
+        veld.setBuur(Richting.EAST, buurveldoost);
+        
+        veld.setObject(instance);
+        instance.bewegen(Richting.EAST);
+        
+        int verwachtxOost = 11;
+        int echtexOost = instance.veld.getXCo();
+        assertEquals(verwachtxOost, echtexOost);
+        }
+    @Test
+    public void testBewegenWest() {   
+        Veld veld = new Veld(10, 10);
+        Speler instance = new Speler(veld);
+        Veld buurveldwest = new Veld(9, 10);
+        veld.setBuur(Richting.WEST, buurveldwest);
+        
+        veld.setObject(instance);
+        instance.bewegen(Richting.WEST);
+        
+        int verwachtXWest = 9;
+        int echteXWest = instance.veld.getXCo();
+        assertEquals(verwachtXWest, echteXWest);
+        
+    }   
+    @Test
+    public void testBewegenMuur() {
+        Veld veld = new Veld(10, 10);
+        Veld buurveldmuur = new Veld(9, 10);
+        veld.setBuur(Richting.WEST, buurveldmuur);
+        Speler instance5 = new Speler(veld);
+        
+        veld.setObject(instance5);
+        buurveldmuur.setObject(new Muur(buurveldmuur, false));
+        instance5.bewegen(Richting.WEST);
+        
+        int verwachtmuurX = 10;
+        int echtemuurX = instance5.veld.getXCo();
+        assertEquals(verwachtmuurX, echtemuurX);
     }
 
     /**
