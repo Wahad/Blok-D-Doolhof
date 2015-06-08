@@ -28,7 +28,8 @@ public class Level extends JPanel {
     private Scanner level;
     Veld[][] velden = new Veld[aantalVelden][aantalVelden];
     private Speler s;
-    private Vriend v;
+    private Vriend v = null;
+    private Helper h = null;
     SpelFrame frame;
 
     public Level() {
@@ -69,6 +70,7 @@ public class Level extends JPanel {
         x = 0;
         while (level.hasNext()) {
             for (int y = 0; y < aantalVelden; y++) {
+               
                 velden[x][y] = new Veld((x * pixelsize), (y * pixelsize));
                 switch (level.next()) {
                     case "A":
@@ -100,14 +102,17 @@ public class Level extends JPanel {
                          velden[x][y].setObject(b);
                          break;
                      case "H":
-                         SpelObject h = new Helper(velden[x][y], true);
+                          h = new Helper(velden[x][y], true);
                          velden[x][y].setObject(h);
                          break;
                 }
+                
             }
+            
             x++;
         }
-
+         v.setHelper(h);
+                
         for (int x = 0; x < aantalVelden; x++) {
             for (int y = 0; y < aantalVelden; y++) {
                 if (x > 0) {

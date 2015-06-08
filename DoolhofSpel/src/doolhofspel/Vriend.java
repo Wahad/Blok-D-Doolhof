@@ -45,6 +45,10 @@ public class Vriend extends Item{
                 }
             }
     }
+    public void setHelper(Helper helper)
+        {
+            this.helper = helper;
+        }
 
   
 }
