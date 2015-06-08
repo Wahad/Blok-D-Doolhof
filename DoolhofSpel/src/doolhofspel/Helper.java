@@ -93,21 +93,21 @@ public class Helper extends Item {
     }
 
     public void setPriority(Veld current) {
-        int currentX = current.getXCo();
-        int currentY = current.getYCo();
+        int currentX = current.getX();
+        int currentY = current.getY();
         int verschilX;
         int verschilY;
         
         String richt = "";
 
-        if (currentX > xco) {
+        if (currentX >= xco) {
             richt = "w";
             verschilX = currentX - xco;
         } else {
             richt = "e";
             verschilX = xco - currentX;
         }
-        if (currentY > yco) {
+        if (currentY >= yco) {
             richt = "n";
             verschilY = currentY - yco;
         } else {
@@ -115,20 +115,20 @@ public class Helper extends Item {
             verschilY = yco - currentY;
         }
 
-        if (verschilY > verschilX && "w".equals(richt)) {
+        if (verschilY >= verschilX && "w".equals(richt)) {
             prior1 = Richting.WEST;
             prior2 = Richting.SOUTH;
             prior3 = Richting.NORTH;
             prior4 = Richting.EAST;
         }
-        else if(verschilX > verschilY && "e".equals(richt))
+        else if(verschilX >= verschilY && "e".equals(richt))
            {
                     prior1 = Richting.EAST;
                     prior2 = Richting.NORTH;
                     prior3 = Richting.SOUTH;
                     prior4 = Richting.WEST;
             }
-        else if(verschilY < verschilX && "n".equals(richt))
+        else if(verschilY <= verschilX && "n".equals(richt))
         {
             prior1 = Richting.NORTH;
             prior2 = Richting.EAST;

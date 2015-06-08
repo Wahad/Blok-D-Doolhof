@@ -69,7 +69,7 @@ public class Level extends JPanel {
         x = 0;
         while (level.hasNext()) {
             for (int y = 0; y < aantalVelden; y++) {
-                velden[x][y] = new Veld((x * pixelsize) + 10, (y * pixelsize) + 10);
+                velden[x][y] = new Veld((x * pixelsize), (y * pixelsize));
                 switch (level.next()) {
                     case "A":
                         SpelObject m = new Muur(velden[x][y], false);
