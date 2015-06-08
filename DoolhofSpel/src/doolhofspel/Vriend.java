@@ -13,6 +13,8 @@ import javax.swing.JOptionPane;
  */
 public class Vriend extends Item{
      Level level;
+     Helper helper;
+     
     
      public Vriend(Veld veld) {
         super(veld);
@@ -20,7 +22,8 @@ public class Vriend extends Item{
         img = imgIc.getImage();
         this.name = "vriend";
         this.pickup = false;
-        
+        helper.setVriendXco(veld.getXCo());
+        helper.setVriendYco(veld.getYCo());
     }
     
      

@@ -15,8 +15,8 @@ public class Helper extends Item {
 
     private int index = 1;
     ArrayList<Integer> route = new ArrayList<>();
-    private int xco;
-    private int yco;
+    private int Vriendxco;
+    private int Vriendyco;
     
     private Richting prior1;
     private Richting prior2;
@@ -28,8 +28,6 @@ public class Helper extends Item {
         imgIc = new ImageIcon("src/images/helper.png");
         img = imgIc.getImage();
         this.name = "helper";
-        this.xco = veld.getXCo();
-        this.yco = veld.getYCo();
         this.setPickup(pickup);
     }
 
@@ -93,26 +91,26 @@ public class Helper extends Item {
     }
 
     public void setPriority(Veld current) {
-        int currentX = current.getX();
-        int currentY = current.getY();
+        int currentX = current.getXCo() / 32;
+        int currentY = current.getYCo() / 32;
         int verschilX;
         int verschilY;
         
         String richt = "";
 
-        if (currentX >= xco) {
+        if (currentX >= Vriendxco) {
             richt = "w";
-            verschilX = currentX - xco;
+            verschilX = currentX - Vriendxco;
         } else {
             richt = "e";
-            verschilX = xco - currentX;
+            verschilX = Vriendxco - currentX;
         }
-        if (currentY >= yco) {
+        if (currentY >= Vriendyco) {
             richt = "n";
-            verschilY = currentY - yco;
+            verschilY = currentY - Vriendyco;
         } else {
             richt = "s";
-            verschilY = yco - currentY;
+            verschilY = Vriendyco - currentY;
         }
 
         if (verschilY >= verschilX && "w".equals(richt)) {
@@ -142,6 +140,14 @@ public class Helper extends Item {
             prior3 = Richting.EAST;
             prior4 = Richting.NORTH;
         }
-
     }
-}
+        public void setVriendXco(int xco)
+        {
+            this.Vriendxco = xco;
+        }
+        public void setVriendYco(int yco)
+        {
+            this.Vriendyco = yco;
+        }
+    }
+
