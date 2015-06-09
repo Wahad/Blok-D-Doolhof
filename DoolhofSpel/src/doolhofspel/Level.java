@@ -28,8 +28,8 @@ public class Level extends JPanel {
     private Scanner level;
     Veld[][] velden = new Veld[aantalVelden][aantalVelden];
     private Speler s;
-    private Vriend v = null;
-    private Helper h = null;
+    private Vriend v;
+    private Helper h;
     SpelFrame frame;
 
     public Level() {
@@ -67,6 +67,8 @@ public class Level extends JPanel {
     }
 
     private void leesLevelIn() {
+        int vriendx = 0;
+        int vriendy = 0;
         x = 0;
         while (level.hasNext()) {
             for (int y = 0; y < aantalVelden; y++) {
@@ -89,6 +91,8 @@ public class Level extends JPanel {
                         v = new Vriend(velden[x][y]);
                         v.level = this;
                         velden[x][y].setObject(v);
+                        vriendx = x;
+                        vriendx = y;
                         break;
 
                     case "V":
@@ -102,16 +106,15 @@ public class Level extends JPanel {
                          velden[x][y].setObject(b);
                          break;
                      case "H":
-                          h = new Helper(velden[x][y], true);
+                         h = new Helper(velden[x][y], true);
                          velden[x][y].setObject(h);
                          break;
                 }
                 
             }
-            
             x++;
         }
-         v.setHelper(h);
+         h.setCoordinaten(vriendx, vriendy);
                 
         for (int x = 0; x < aantalVelden; x++) {
             for (int y = 0; y < aantalVelden; y++) {

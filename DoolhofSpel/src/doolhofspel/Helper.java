@@ -15,8 +15,8 @@ public class Helper extends Item {
 
     private int index = 1;
     ArrayList<Integer> route = new ArrayList<>();
-    private int Vriendxco;
-    private int Vriendyco;
+    private int vriendxco;
+    private int vriendyco;
     
     private Richting prior1;
     private Richting prior2;
@@ -98,19 +98,19 @@ public class Helper extends Item {
         
         String richt = "";
 
-        if (currentX >= Vriendxco) {
+        if (currentX >= vriendxco) {
             richt = "w";
-            verschilX = currentX - Vriendxco;
+            verschilX = currentX - vriendxco;
         } else {
             richt = "e";
-            verschilX = Vriendxco - currentX;
+            verschilX = vriendxco - currentX;
         }
-        if (currentY >= Vriendyco) {
+        if (currentY >= vriendyco) {
             richt = "n";
-            verschilY = currentY - Vriendyco;
+            verschilY = currentY - vriendyco;
         } else {
             richt = "s";
-            verschilY = Vriendyco - currentY;
+            verschilY = vriendyco - currentY;
         }
 
         if (verschilY >= verschilX && "w".equals(richt)) {
@@ -141,14 +141,11 @@ public class Helper extends Item {
             prior4 = Richting.NORTH;
         }
     }
-        public void setVriendXco(int xco)
-        {
-            this.Vriendxco = xco;
-        }
-        public void setVriendYco(int yco)
-        {
-            this.Vriendyco = yco;
-        }
+     
+   public void setCoordinaten(int x, int y) {  
+       vriendxco = x;
+       vriendyco = y;
+    }
         
     }
 
