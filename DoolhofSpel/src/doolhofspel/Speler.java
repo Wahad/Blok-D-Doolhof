@@ -16,7 +16,7 @@ public class Speler extends SpelObject {
 
     private int aantalStappen = 0;
     public Item heeft;
-    private Richting richt;
+    public Richting richt;
 
     public Richting getRicht() {
         return richt;
