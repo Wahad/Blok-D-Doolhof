@@ -78,24 +78,5 @@ public class SchepTest {
         
         assertEquals(expected, actual);
         //fail("The test case is a prototype.");
-    }@Test
-    public void testUitvoerenGeenMuur() {
-        System.out.println("uitvoeren");
-        Veld startveld = new Veld(10, 10);
-        Speler speler = new Speler(startveld);
-        startveld.setObject(speler);
-        Schep instance = new Schep(new Veld(9, 10), true);
-        speler.heeft = instance;
-        Veld veld = new Veld(10, 11);
-        startveld.setBuur(Richting.SOUTH, veld);
-        veld.setBuur(Richting.NORTH, startveld);
-        
-        speler.richt = Richting.SOUTH;
-        instance.uitvoeren(speler);
-        SpelObject expected = null;
-        SpelObject actual = veld.getObject();
-        
-        assertEquals(expected, actual);
-        //fail("The test case is a prototype.");
     }
 }
