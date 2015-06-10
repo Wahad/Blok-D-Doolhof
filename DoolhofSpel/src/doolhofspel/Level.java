@@ -29,7 +29,7 @@ public class Level extends JPanel {
     Veld[][] velden = new Veld[aantalVelden][aantalVelden];
     private Speler s;
     private Vriend v;
-    private Helper h;
+    private Helper h = null;
     SpelFrame frame;
 
     public Level() {

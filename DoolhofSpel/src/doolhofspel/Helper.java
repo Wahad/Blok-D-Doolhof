@@ -143,8 +143,8 @@ public class Helper extends Item {
     }
      
    public void setCoordinaten(int x, int y) {  
-       vriendxco = x;
-       vriendyco = y;
+       this.vriendxco = x;
+       this.vriendyco = y;
     }
         
     }
