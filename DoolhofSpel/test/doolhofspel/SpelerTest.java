@@ -99,17 +99,85 @@ public class SpelerTest {
         Veld veld = new Veld(10, 10);
         Veld buurveldmuur = new Veld(9, 10);
         veld.setBuur(Richting.WEST, buurveldmuur);
-        Speler instance5 = new Speler(veld);
+        Speler instance = new Speler(veld);
         
-        veld.setObject(instance5);
+        veld.setObject(instance);
         buurveldmuur.setObject(new Muur(buurveldmuur, false));
-        instance5.bewegen(Richting.WEST);
+        instance.bewegen(Richting.WEST);
         
         int verwachtmuurX = 10;
-        int echtemuurX = instance5.veld.getXCo();
+        int echtemuurX = instance.veld.getXCo();
         assertEquals(verwachtmuurX, echtemuurX);
     }
-
+    @Test
+    public void algoritmeTestBewegen1(){
+        Veld veld = new Veld(10, 10);
+        Veld buurveld = new Veld(10, 9);
+        veld.setBuur(Richting.NORTH, buurveld);
+        Speler instance = new Speler(veld);
+        
+        veld.setObject(instance);
+        buurveld.setObject(new Muur(buurveld, true));
+        
+        instance.bewegen(Richting.NORTH);
+        int expectedY = 10;
+        int newY = instance.veld.getYCo();
+        assertEquals(expectedY, newY);
+    }
+    @Test
+    public void algoritmeTestBewegen2(){
+        Veld veld = new Veld(10, 10);
+        Veld buurveld = new Veld(10, 9);
+        veld.setBuur(Richting.NORTH, buurveld);
+        Speler instance = new Speler(veld);
+        
+        veld.setObject(instance);
+       
+        instance.bewegen(Richting.NORTH);
+        
+        int expectedY = 9;
+        int newY = instance.veld.getYCo();
+        assertEquals(expectedY, newY);
+    }
+    @Test
+    public void algoritmeTestBewegen3(){
+        Veld veld = new Veld(10, 10);
+        Veld buurveld = new Veld(10, 9);
+        veld.setBuur(Richting.NORTH, buurveld);
+        Speler instance = new Speler(veld);
+        ValsSpeler v = new ValsSpeler(buurveld, 20);
+        
+        instance.setaantalStappen(70);
+       
+        veld.setObject(instance);
+        buurveld.setObject(v);
+        
+        instance.bewegen(Richting.NORTH);
+        
+        int expectedY = 9;
+        int newY = instance.veld.getYCo();
+        assertEquals(expectedY, newY);
+        int verwachtaantal = 51;
+        assertEquals(verwachtaantal, instance.getaantalStappen());
+    }
+    @Test
+    public void algoritmeTestBewegen4(){
+        Veld veld = new Veld(10, 10);
+        Veld buurveld = new Veld(10, 9);
+        veld.setBuur(Richting.NORTH, buurveld);
+        Speler instance = new Speler(veld);
+        Schep s = new Schep(buurveld, true);
+        
+        veld.setObject(instance);
+        buurveld.setObject(s);
+        
+        instance.bewegen(Richting.NORTH);
+        
+        int expectedY = 9;
+        int newY = instance.veld.getYCo();
+        assertEquals(expectedY, newY);
+        assertEquals(instance.heeft, s);
+    }
     /**
      * Test of getaantalStappen method, of class Speler.
      */
