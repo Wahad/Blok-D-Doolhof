@@ -20,7 +20,7 @@ import javax.swing.JPanel;
  * @author Menno
  */
 public class Level extends JPanel {
-    private int x;
+    private int y;
     private int levelnummer = 1;
     final int pixelsize = 32;
     final int aantalVelden = 20;
@@ -28,6 +28,7 @@ public class Level extends JPanel {
     Veld[][] velden = new Veld[aantalVelden][aantalVelden];
     private Speler s;
     private Vriend v;
+    private Helper h;
     SpelFrame frame;
 
     public Level() {
@@ -62,12 +63,15 @@ public class Level extends JPanel {
                 velden[x][y].drawObject(g);
             }
         }
+        if(h.isGevonden()){
+            h.paintRoute(g);
+        }
     }
 
     private void leesLevelIn() {
-        x = 0;
+        y = 0;
         while (level.hasNext()) {
-            for (int y = 0; y < aantalVelden; y++) {
+            for (int x = 0; x < aantalVelden; x++) {
                
                 velden[x][y] = new Veld((x * pixelsize), (y * pixelsize));
                 switch (level.next()) {
@@ -100,13 +104,14 @@ public class Level extends JPanel {
                          velden[x][y].setObject(b);
                          break;
                      case "H":
-                         SpelObject h = new Helper(velden[x][y], false);
-                         velden[x][y].setObject(h);
+                         h = new Helper(velden[x][y], false);
+                         velden[x][y].setObject((Helper) h);
+                         h.setVeldLijst(velden);
                          break;
                 }
                 
             }
-            x++;
+            y++;
         }
                 
         for (int x = 0; x < aantalVelden; x++) {
@@ -125,6 +130,8 @@ public class Level extends JPanel {
                 }
             }
         }
+        
+        
     }
 
     public int getScore() {
