@@ -30,7 +30,7 @@ public class Helper extends Item {
         this.name = "helper";
         this.setPickup(pickup);
         oplossing = null;
-        doolhof = new String[20][20]; // aantal kolommen en rijen van het level: 21 bij 21
+        doolhof = new String[20][20]; // aantal kolommen en rijen van het level: 20 bij 20
     }
 
     @Override
