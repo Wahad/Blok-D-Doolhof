@@ -27,7 +27,7 @@ public class Helper extends Item {
 
     @Override
     public void uitvoeren(Speler speler) {
-        checkRoute(speler.veld);
+        checkRoute(veld);
     }
 
     public void checkRoute(Veld current) {
