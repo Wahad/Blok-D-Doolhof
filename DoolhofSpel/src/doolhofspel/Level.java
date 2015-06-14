@@ -20,6 +20,7 @@ import javax.swing.JPanel;
  * @author Menno
  */
 public class Level extends JPanel {
+
     private int y;
     private int levelnummer = 1;
     final int pixelsize = 32;
@@ -50,7 +51,7 @@ public class Level extends JPanel {
         try {
             level = new Scanner(new File("src/images/testlevel" + levelnummer + ".txt"));
         } catch (FileNotFoundException e) {
-            System.out.println("Geen map gevonden " + e);
+            
         }
     }
 
@@ -63,16 +64,18 @@ public class Level extends JPanel {
                 velden[x][y].drawObject(g);
             }
         }
-     if(h.isGevonden()){
-                    h.paintRoute(g);
-                 }
+        if (h.isGevonden()) {
+            h.paintRoute(g);
+            s.drawObject(g);
+        }
+
     }
 
     private void leesLevelIn() {
         y = 0;
         while (level.hasNext()) {
             for (int x = 0; x < aantalVelden; x++) {
-               
+
                 velden[x][y] = new Veld((x * pixelsize), (y * pixelsize));
                 switch (level.next()) {
                     case "A":
@@ -82,43 +85,42 @@ public class Level extends JPanel {
                     case "W":
                         SpelObject w = new Muur(velden[x][y], true);
                         velden[x][y].setObject(w);
-                        break; 
-                    case "S":
-                        s = new Speler(velden[x][y]);
-                        velden[x][y].setObject(s);
                         break;
                     case "F":
                         v = new Vriend(velden[x][y]);
                         v.level = this;
                         velden[x][y].setObject(v);
                         break;
-
                     case "V":
                         Random rand = new Random();
                         int waarde = rand.nextInt(20) + 1;
                         SpelObject vs = new ValsSpeler(velden[x][y], waarde);
                         velden[x][y].setObject(vs);
                         break;
-                     case "B":
-                         SpelObject b = new Schep(velden[x][y], true);
-                         velden[x][y].setObject(b);
-                         break;
-                     case "H":
-                         h = new Helper(velden[x][y], false);
-                         velden[x][y].setObject((Helper) h);
-                         h.setVeldLijst(velden);
-                         break;
-                     case "T":
-                         SpelObject t = new Teleporter(velden[x][y], true);
-                         t.level = this;
-                         velden[x][y].setObject(t);
-                         break;
+                    case "B":
+                        SpelObject b = new Schep(velden[x][y], true);
+                        velden[x][y].setObject(b);
+                        break;
+                    case "H":
+                        h = new Helper(velden[x][y], false);
+                        velden[x][y].setObject((Helper) h);
+                        h.setVeldLijst(velden);
+                        break;
+                    case "T":
+                        SpelObject t = new Teleporter(velden[x][y], true);
+                        t.level = this;
+                        velden[x][y].setObject(t);
+                        break;
+                    case "S":
+                        s = new Speler(velden[x][y]);
+                        velden[x][y].setObject(s);
+                        break;
                 }
-                
+
             }
             y++;
         }
-                
+
         for (int x = 0; x < aantalVelden; x++) {
             for (int y = 0; y < aantalVelden; y++) {
                 if (x > 0) {
@@ -135,8 +137,8 @@ public class Level extends JPanel {
                 }
             }
         }
-        
-        
+
+
     }
 
     public int getScore() {
@@ -162,12 +164,10 @@ public class Level extends JPanel {
     public void setNummer(int nummer) {
         this.levelnummer = nummer;
     }
-    
-    public Veld[][] getVeldenLijst()
-    {
-      return velden;
+
+    public Veld[][] getVeldenLijst() {
+        return velden;
     }
-    
 
     public class input implements KeyListener {
 
@@ -182,6 +182,7 @@ public class Level extends JPanel {
             if (keycode == KeyEvent.VK_DOWN) {
                 s.bewegen(Richting.SOUTH);
                 s.setRicht(Richting.SOUTH);
+                
             }
             if (keycode == KeyEvent.VK_RIGHT) {
                 s.bewegen(Richting.EAST);
@@ -192,16 +193,14 @@ public class Level extends JPanel {
                 s.setRicht(Richting.WEST);
             }
             if (keycode == KeyEvent.VK_SPACE) {
-               s.inHand.uitvoeren(s);
+                s.inHand.uitvoeren(s);
             }
-            if (keycode == KeyEvent.VK_SHIFT)
-            {
+            if (keycode == KeyEvent.VK_SHIFT) {
                 s.selecteerAnderItem();
             }
-            if (keycode == KeyEvent.VK_R){
+            if (keycode == KeyEvent.VK_R) {
                 restart();
             }
-
             repaint();
             frame.repaint();
         }

@@ -176,7 +176,7 @@ public class SpelerTest {
         int expectedY = 9;
         int newY = instance.veld.getYCo();
         assertEquals(expectedY, newY);
-        assertEquals(instance.heeft, s);
+        assertEquals(instance.inHand, s);
     }
     /**
      * Test of getaantalStappen method, of class Speler.
