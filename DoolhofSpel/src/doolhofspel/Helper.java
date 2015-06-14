@@ -28,6 +28,7 @@ public class Helper extends Item {
         imgIc = new ImageIcon("src/images/helper.png");
         img = imgIc.getImage();
         this.name = "helper";
+        this.pickup = false;
         this.setPickup(pickup);
     }
 
@@ -93,46 +94,34 @@ public class Helper extends Item {
     public void setPriority(Veld current) {
         int currentX = current.getXCo() / 32;
         int currentY = current.getYCo() / 32;
-        int verschilX;
-        int verschilY;
         
-        String richt = "";
+        String richtWE = "";
+        String richtNS = "";
 
         if (currentX >= vriendxco) {
-            richt = "w";
-            verschilX = currentX - vriendxco;
+            richtWE = "w";
         } else {
-            richt = "e";
-            verschilX = vriendxco - currentX;
+            richtWE = "e";
         }
         if (currentY >= vriendyco) {
-            richt = "n";
-            verschilY = currentY - vriendyco;
+            richtNS = "n";
         } else {
-            richt = "s";
-            verschilY = vriendyco - currentY;
+            richtNS = "s";
         }
 
-        if (verschilY >= verschilX && "w".equals(richt)) {
+        if ("w".equals(richtWE) && "s".equals(richtNS) ) {
             prior1 = Richting.WEST;
             prior2 = Richting.SOUTH;
             prior3 = Richting.NORTH;
             prior4 = Richting.EAST;
         }
-        else if(verschilX >= verschilY && "e".equals(richt))
+        else if("e".equals(richtWE) && "n".equals(richtWE))
            {
                     prior1 = Richting.EAST;
                     prior2 = Richting.NORTH;
                     prior3 = Richting.SOUTH;
                     prior4 = Richting.WEST;
             }
-        else if(verschilY <= verschilX && "n".equals(richt))
-        {
-            prior1 = Richting.NORTH;
-            prior2 = Richting.EAST;
-            prior3 = Richting.WEST;
-            prior4 = Richting.SOUTH;
-        }
         else
         {
             prior1 = Richting.SOUTH;

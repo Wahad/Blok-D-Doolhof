@@ -21,7 +21,8 @@ import javax.swing.JPanel;
  */
 public class Level extends JPanel {
 
-    private int x;
+    private int x = 0;
+    private int y = 0;
     private int levelnummer = 1;
     final int pixelsize = 32;
     final int aantalVelden = 20;
@@ -69,9 +70,8 @@ public class Level extends JPanel {
     private void leesLevelIn() {
         int vriendx = 0;
         int vriendy = 0;
-        x = 0;
         while (level.hasNext()) {
-            for (int y = 0; y < aantalVelden; y++) {
+            for (y = 0; y < aantalVelden; y++) {
                
                 velden[x][y] = new Veld((x * pixelsize), (y * pixelsize));
                 switch (level.next()) {
