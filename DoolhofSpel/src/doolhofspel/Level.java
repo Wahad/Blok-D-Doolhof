@@ -30,6 +30,7 @@ public class Level extends JPanel {
     public Speler s;
     private Vriend v;
     private Helper h;
+    private Teleporter t;
     SpelFrame frame;
 
     public Level() {
@@ -107,7 +108,7 @@ public class Level extends JPanel {
                         h.setVeldLijst(velden);
                         break;
                     case "T":
-                        SpelObject t = new Teleporter(velden[x][y], true);
+                        t = new Teleporter(velden[x][y], true);
                         t.level = this;
                         velden[x][y].setObject(t);
                         break;

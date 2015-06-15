@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
 public class Teleporter extends Item {
     Veld[][] veldenLijst;
     Veld randomVeld;
+    Level level;
     
     public Teleporter(Veld veld, boolean pickup) {
         super(veld);
