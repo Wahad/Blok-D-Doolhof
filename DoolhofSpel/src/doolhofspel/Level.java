@@ -54,7 +54,6 @@ public class Level extends JPanel {
         try {
             level = new Scanner(new File("src/images/testlevel" + levelnummer + ".txt"));
         } catch (FileNotFoundException e) {
-            
         }
     }
 
@@ -172,8 +171,6 @@ public class Level extends JPanel {
     public Veld[][] getVeldenLijst() {
         return velden;
     }
-    
-    
 
     public class input implements KeyListener {
 
@@ -188,7 +185,7 @@ public class Level extends JPanel {
             if (keycode == KeyEvent.VK_DOWN) {
                 s.bewegen(Richting.SOUTH);
                 s.setRicht(Richting.SOUTH);
-                
+
             }
             if (keycode == KeyEvent.VK_RIGHT) {
                 s.bewegen(Richting.EAST);
@@ -211,7 +208,7 @@ public class Level extends JPanel {
             repaint();
             frame.repaint();
         }
-        
+
         @Override
         public void keyTyped(KeyEvent e) {
         }
