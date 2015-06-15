@@ -145,7 +145,7 @@ public class SpelerTest {
         Veld buurveld = new Veld(10, 9);
         veld.setBuur(Richting.NORTH, buurveld);
         Speler instance = new Speler(veld);
-        ValsSpeler v = new ValsSpeler(buurveld, 20);
+        ValsSpeler v = new ValsSpeler(buurveld, 20, false);
         
         instance.setaantalStappen(70);
        

@@ -7,6 +7,9 @@ package doolhofspel;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import javax.swing.ImageIcon;
 
 /**
@@ -16,10 +19,9 @@ import javax.swing.ImageIcon;
 public class Speler extends SpelObject {
 
     private int aantalStappen = 0;
-    public ArrayList<Item> rugzak;
-    public Item inHand;
+    private List rugzak;
+    private Item inHand;
     public Richting richt;
-    private boolean switched;
     
     public Richting getRicht() {
         return richt;
@@ -61,6 +63,14 @@ public class Speler extends SpelObject {
 
     }
 
+    public Item getInHand() {
+        return inHand;
+    }
+
+    public List getRugzak() {
+        return rugzak;
+    }
+
     public int getaantalStappen() {
         return aantalStappen;
     }
@@ -80,17 +90,10 @@ public class Speler extends SpelObject {
     }
 
     public void selecteerAnderItem() {
-        switched = false;
-        for (Item i : rugzak) {
-           if(!switched)
-           {
-            if(i != inHand)
-            {
-                inHand = null;
-                inHand = i;
-                switched = true;
-            }
-           }
+      Collections.rotate(rugzak, -1);
+      inHand = (Item) rugzak.get(0);
         }
-    }
-}
+        
+          
+           
+        }

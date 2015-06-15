@@ -44,7 +44,7 @@ public class ValsSpelerTest {
         Random rand = new Random();
         int waarde = rand.nextInt(20) + 1;
         int verwachtaantal = 40-waarde;
-        ValsSpeler instance = new ValsSpeler(new Veld(1, 1), waarde);
+        ValsSpeler instance = new ValsSpeler(new Veld(1, 1), waarde, false);
         
         instance.uitvoeren(speler);
         

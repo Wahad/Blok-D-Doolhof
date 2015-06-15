@@ -10,6 +10,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
@@ -30,6 +31,8 @@ public class Level extends JPanel {
     public Speler s;
     private Vriend v;
     private Helper h;
+    private Item inHand;
+    private List rugzak;
     SpelFrame frame;
 
     public Level() {
@@ -87,14 +90,14 @@ public class Level extends JPanel {
                         velden[x][y].setObject(w);
                         break;
                     case "F":
-                        v = new Vriend(velden[x][y]);
+                        v = new Vriend(velden[x][y], false);
                         v.level = this;
                         velden[x][y].setObject(v);
                         break;
                     case "V":
                         Random rand = new Random();
                         int waarde = rand.nextInt(20) + 1;
-                        SpelObject vs = new ValsSpeler(velden[x][y], waarde);
+                        SpelObject vs = new ValsSpeler(velden[x][y], waarde, true);
                         velden[x][y].setObject(vs);
                         break;
                     case "B":
@@ -150,8 +153,9 @@ public class Level extends JPanel {
     }
 
     public void restart() {
-        s.inHand = null;
-        s.rugzak = null;
+        rugzak = s.getRugzak();
+        inHand = null;
+        rugzak = null;
         openLevel();
         leesLevelIn();
         sluitLevel();
@@ -168,6 +172,8 @@ public class Level extends JPanel {
     public Veld[][] getVeldenLijst() {
         return velden;
     }
+    
+    
 
     public class input implements KeyListener {
 
@@ -193,7 +199,8 @@ public class Level extends JPanel {
                 s.setRicht(Richting.WEST);
             }
             if (keycode == KeyEvent.VK_SPACE) {
-                s.inHand.uitvoeren(s);
+                inHand = s.getInHand();
+                inHand.uitvoeren(s);
             }
             if (keycode == KeyEvent.VK_SHIFT) {
                 s.selecteerAnderItem();
@@ -204,7 +211,7 @@ public class Level extends JPanel {
             repaint();
             frame.repaint();
         }
-
+        
         @Override
         public void keyTyped(KeyEvent e) {
         }

@@ -43,7 +43,7 @@ public class SchepTest {
         startveld.setObject(speler);
         Schep instance = new Schep(new Veld(9, 10), true);
         
-        speler.heeft = instance;
+        speler.inHand = instance;
         Veld veld = new Veld(10, 11);
         Muur binnenmuur = new Muur(veld, false);
         veld.setObject(binnenmuur);
@@ -64,7 +64,7 @@ public class SchepTest {
         Speler speler = new Speler(startveld);
         startveld.setObject(speler);
         Schep instance = new Schep(new Veld(9, 10), true);
-        speler.heeft = instance;
+        speler.inHand = instance;
         Veld veld = new Veld(10, 11);
         Muur buitenmuur = new Muur(veld, true);
         veld.setObject(buitenmuur);

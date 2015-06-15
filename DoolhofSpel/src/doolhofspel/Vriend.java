@@ -15,12 +15,12 @@ public class Vriend extends Item{
      Level level;
      
     
-     public Vriend(Veld veld) {
+     public Vriend(Veld veld, boolean pickup) {
         super(veld);
         imgIc = new ImageIcon("src/images/vriend.png");
         img = imgIc.getImage();
         this.name = "vriend";
-        this.pickup = false;
+        this.setPickup(pickup);
     }
     
      
