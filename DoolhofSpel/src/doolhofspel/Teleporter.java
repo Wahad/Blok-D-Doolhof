@@ -30,7 +30,6 @@ public class Teleporter extends Item {
     }
 
     private Veld getRandomVeld() {
-        veldenLijst = level.getVeldenLijst();
         Random rand = new Random();
         int waardeX = rand.nextInt(veldenLijst.length) + 1;
         int waardeY = rand.nextInt(veldenLijst.length) + 1;
@@ -53,5 +52,8 @@ public class Teleporter extends Item {
         return randomVeld;
     }
   
+    public void setVeldLijst(Veld[][] doolhof) {
+        this.veldenLijst = doolhof;
+    }
 }
 
