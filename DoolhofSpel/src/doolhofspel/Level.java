@@ -63,9 +63,9 @@ public class Level extends JPanel {
                 velden[x][y].drawObject(g);
             }
         }
-        if(h.isGevonden()){
-            h.paintRoute(g);
-        }
+     if(h.isGevonden()){
+                    h.paintRoute(g);
+                 }
     }
 
     private void leesLevelIn() {
@@ -107,6 +107,11 @@ public class Level extends JPanel {
                          h = new Helper(velden[x][y], false);
                          velden[x][y].setObject((Helper) h);
                          h.setVeldLijst(velden);
+                         break;
+                     case "T":
+                         SpelObject t = new Teleporter(velden[x][y], true);
+                         t.level = this;
+                         velden[x][y].setObject(t);
                          break;
                 }
                 
@@ -154,6 +159,11 @@ public class Level extends JPanel {
 
     public void setNummer(int nummer) {
         this.levelnummer = nummer;
+    }
+    
+    public Veld[][] getVeldenLijst()
+    {
+      return velden;
     }
     
 

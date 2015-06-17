@@ -31,12 +31,10 @@ public class Speler extends SpelObject {
         imgIc = new ImageIcon("src/images/speler.png");
         img = imgIc.getImage();
     }
-
+    
     public void bewegen(Richting r) {
         Veld buurveld = veld.getBuur(r);
         SpelObject x = buurveld.getObject();
-
-
 
         if (!(x instanceof Muur)) {
             if (x instanceof Item) {
@@ -63,4 +61,13 @@ public class Speler extends SpelObject {
         this.aantalStappen = aantalStappen;
     }
     
+    public Veld getVeld()
+    {
+        return veld;
+    }
+    
+    public void setVeld(Veld veld)
+    {
+        this.veld = veld;
+    }
 }

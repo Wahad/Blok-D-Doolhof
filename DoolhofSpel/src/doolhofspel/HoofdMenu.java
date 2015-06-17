@@ -51,7 +51,7 @@ public class HoofdMenu extends JFrame {
                     @Override
                     public void actionPerformed(ActionEvent event) {
                         HulpMenu hulp = new HulpMenu();
-                        hulp.setSize(720, 900);
+                        hulp.setSize(820, 800);
                         hulp.setLocationRelativeTo(null);
                         hulp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                         hulp.setVisible(true);

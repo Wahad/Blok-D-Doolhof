@@ -18,6 +18,7 @@ public class SpelObject extends JComponent{
     protected ImageIcon imgIc;
     protected Image img;
     protected Veld veld;
+    Level level;
     
     public SpelObject(Veld veld){
         this.veld = veld;
