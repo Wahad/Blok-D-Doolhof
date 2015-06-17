@@ -19,9 +19,9 @@ import javax.swing.JPanel;
  */
 public class HoofdMenu extends JFrame {
     Titlebar title;
- 
-    private JButton start;
-    private JButton instructie;
+    private final JButton start;
+    private final JButton instructie;
+    
     public HoofdMenu()
     {
     super("Find the Princess|Made by Roy van der Ende and Menno van Hameren");
@@ -39,7 +39,7 @@ public class HoofdMenu extends JFrame {
                     @Override
                     public void actionPerformed(ActionEvent event) {
                         SpelFrame frame = new SpelFrame();
-                        frame.setSize(820,700);
+                        frame.setSize(860,700);
                         frame.setLocationRelativeTo(null);
                         frame.setVisible(true);
                     }

@@ -6,6 +6,7 @@ package doolhofspel;
 
 import java.awt.Graphics;
 import java.awt.Image;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 
 /**
@@ -15,9 +16,11 @@ import javax.swing.ImageIcon;
 public class Speler extends SpelObject {
 
     private int aantalStappen = 0;
-    public Item heeft;
+    public ArrayList<Item> rugzak;
+    public Item inHand;
     public Richting richt;
-
+    private boolean switched;
+    
     public Richting getRicht() {
         return richt;
     }
@@ -28,6 +31,7 @@ public class Speler extends SpelObject {
 
     public Speler(Veld veld) {
         super(veld);
+        this.rugzak = new ArrayList<>();
         imgIc = new ImageIcon("src/images/speler.png");
         img = imgIc.getImage();
     }
@@ -42,7 +46,11 @@ public class Speler extends SpelObject {
                 if (!i.pickup) {
                     i.uitvoeren(this);
                 } else {
-                    heeft = i;
+                    if(rugzak.isEmpty())
+                    {
+                        inHand = i;
+                    }
+                    rugzak.add(i);
                 }
             }
             veld.setObject(null);
@@ -69,5 +77,20 @@ public class Speler extends SpelObject {
     public void setVeld(Veld veld)
     {
         this.veld = veld;
+    }
+
+    public void selecteerAnderItem() {
+        switched = false;
+        for (Item i : rugzak) {
+           if(!switched)
+           {
+            if(i != inHand)
+            {
+                inHand = null;
+                inHand = i;
+                switched = true;
+            }
+           }
+        }
     }
 }

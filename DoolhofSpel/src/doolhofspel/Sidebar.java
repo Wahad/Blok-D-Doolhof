@@ -26,9 +26,24 @@ public class Sidebar extends JPanel{
     @Override
     public void paint(Graphics g) {
         super.paint(g);
-        g.setFont(new Font("TimesNewRoman", Font.PLAIN, 18));
-        g.drawString("Score: " + level.getScore(), 5, 300);
-        g.drawString("Level " + level.getNummer(), 5, 280);
+        g.setFont(new Font("TimesNewRoman", Font.PLAIN, 17));
+        g.drawString("Score: " + level.getScore(), 0, 300);
+        g.drawString("Level " + level.getNummer(), 0, 280);
+        if(!level.s.rugzak.isEmpty())
+        {
+            g.drawString("Item in hand: " + level.s.inHand.name  , 0, 320);
+        }
+        if(level.s.rugzak.size() > 1)
+        {
+            for (int i = 0; i < level.s.rugzak.size(); i++) {
+                int y = 340 + (i * 20);
+                if(level.s.inHand != level.s.rugzak.get(i))
+                {
+                    g.drawString("Item in rugzak: " + level.s.rugzak.get(i).name , 0, 340);
+                } 
+            }
+        }
+        
         setBackground(Color.ORANGE);
     }
 }

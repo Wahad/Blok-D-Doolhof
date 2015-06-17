@@ -26,7 +26,7 @@ public class Level extends JPanel {
     final int aantalVelden = 20;
     private Scanner level;
     Veld[][] velden = new Veld[aantalVelden][aantalVelden];
-    private Speler s;
+    public Speler s;
     private Vriend v;
     private Helper h;
     SpelFrame frame;
@@ -190,7 +190,11 @@ public class Level extends JPanel {
                 s.setRicht(Richting.WEST);
             }
             if (keycode == KeyEvent.VK_SPACE) {
-               s.heeft.uitvoeren(s);
+               s.inHand.uitvoeren(s);
+            }
+            if (keycode == KeyEvent.VK_SHIFT)
+            {
+                s.selecteerAnderItem();
             }
             if (keycode == KeyEvent.VK_R){
                 restart();

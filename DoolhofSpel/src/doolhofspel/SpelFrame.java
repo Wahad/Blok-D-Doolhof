@@ -31,7 +31,7 @@ public class SpelFrame extends JFrame {
         add(title, BorderLayout.NORTH);
        
         side = new Sidebar();
-        side.setPreferredSize(new Dimension(100, 720));
+        side.setPreferredSize(new Dimension(200, 720));
         add(side, BorderLayout.EAST);
         
         level = new Level();

@@ -9,7 +9,6 @@ import java.util.Random;
 import javax.swing.ImageIcon;
 
 public class Teleporter extends Item {
-    int waarde;
     Veld[][] veldenLijst;
     Veld randomVeld;
     
@@ -31,7 +30,7 @@ public class Teleporter extends Item {
     }
 
     private Veld getRandomVeld() {
-        this.veldenLijst = level.getVeldenLijst();
+        veldenLijst = level.getVeldenLijst();
         Random rand = new Random();
         int waardeX = rand.nextInt(veldenLijst.length) + 1;
         int waardeY = rand.nextInt(veldenLijst.length) + 1;
