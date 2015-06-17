@@ -148,6 +148,8 @@ public class Level extends JPanel {
     }
 
     public void restart() {
+        s.inHand = null;
+        s.rugzak = null;
         openLevel();
         leesLevelIn();
         sluitLevel();
