@@ -12,7 +12,7 @@ import javax.swing.ImageIcon;
  */
 public class ValsSpeler extends Item {
 
-    int waarde;
+    private int waarde;
     
     
     public ValsSpeler(Veld veld, int waarde, boolean pickup) {

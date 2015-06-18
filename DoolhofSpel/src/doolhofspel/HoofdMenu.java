@@ -4,14 +4,12 @@
  */
 package doolhofspel;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
+
 
 /**
  *
@@ -51,7 +49,7 @@ public class HoofdMenu extends JFrame {
                     @Override
                     public void actionPerformed(ActionEvent event) {
                         HulpMenu hulp = new HulpMenu();
-                        hulp.setSize(820, 800);
+                        hulp.setSize(840, 780);
                         hulp.setLocationRelativeTo(null);
                         hulp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                         hulp.setVisible(true);

@@ -5,7 +5,6 @@
 package doolhofspel;
 
 import java.awt.Graphics;
-import java.util.ArrayList;
 import javax.swing.ImageIcon;
 
 /**

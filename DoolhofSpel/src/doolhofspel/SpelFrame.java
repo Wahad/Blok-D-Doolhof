@@ -6,12 +6,10 @@
 package doolhofspel;
 
 import java.awt.BorderLayout;
-import java.awt.Button;
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+
 
 public class SpelFrame extends JFrame {
     HoofdMenu menu;

@@ -4,7 +4,6 @@
  */
 package doolhofspel;
 
-import javax.swing.ImageIcon;
 
 /**
  *
