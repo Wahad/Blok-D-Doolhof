@@ -196,8 +196,11 @@ public class Level extends JPanel {
                 s.setRicht(Richting.WEST);
             }
             if (keycode == KeyEvent.VK_SPACE) {
+                if(s.getInHand() != null)
+                {
                 inHand = s.getInHand();
                 inHand.uitvoeren(s);
+                }
             }
             if (keycode == KeyEvent.VK_SHIFT) {
                 s.selecteerAnderItem();
